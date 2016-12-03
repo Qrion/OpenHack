@@ -2,6 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <head>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.6.0/socket.io.min.js'></script>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="../js/app.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -199,6 +200,12 @@
         app.controller('mapCtrl', function($scope){
         })
         
+        var socket = io.connect('http://localhost:6007');
+
+        socket.on('newRequest', function(data){
+            alert(data);
+        })
+
     </script>
         
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMOQ5ntPst9DhScYdGruqXZ9pO0JLHjPw&callback=initMap"
