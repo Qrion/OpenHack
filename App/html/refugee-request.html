@@ -49,7 +49,7 @@
                 $scope.submitt = function()
                 {
                     $scope.title = null;
-                    $scope.textArea = null;
+                    $scope.desc = null;
                     $scope.category = null;
                     $scope.date = null;
                     $scope.time = null;
@@ -89,7 +89,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
               </button>
-              <a class="navbar-brand" href="#">Red Cross | Sarah Roe | Request help</a>
+              <a class="navbar-brand" href="#"><img class='redcross-logo' src="../img/cross.png" alt=""> | Sarah Roe | Request help</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,7 +97,8 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="../html/refugee-request.html">Request help</a></li>
-                <li><a href="../html/refugee-notifications.html">Notifications</a></li>
+                <li><a href="../html/volunteer-notifications.html">Timeline</a></li>
+                <li><a href="../html/volunteer-map.html">Map</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -112,11 +113,7 @@
             <div class="form-group" style="resize: none">
               <label for="comment">Description <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp()"></span> </label>
                 <p ng-show='help'>Please write what you want help with and a brief description of your situation.</p>
-<<<<<<< HEAD
-              <textarea class="form-control" rows="5" id="comment" style="resize: vertical" onkeyup="textAreaAdjust(this)" style="overflow:hidden" placeholder="What do you need help with?" ng-model="textArea"></textarea>
-=======
               <textarea class="form-control" rows="5" id="comment" style="resize: vertical" onkeyup="textAreaAdjust(this)" style="overflow:hidden" placeholder="What do you need help with?" ng-model='desc'></textarea>
->>>>>>> sockets on going
             </div>
             
             <div class="form-group">
@@ -130,11 +127,7 @@
             <div class="form-group" ng-show="period">
                 <div>
                     <label for="comment">Date </label>
-<<<<<<< HEAD
-                    <input type="text" class="date_input" maxlength="" placeholder="24/12/2016" id="date_input" ng-model="date">
-=======
                     <input type="text" class="date_input" maxlength="" placeholder="24/12/2016" id="date_input" ng-model='date_input'>
->>>>>>> sockets on going
                     <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp2()"></span>
                 </div>
                 <div>
@@ -145,11 +138,7 @@
             </div>
             
             <div class="btn btn-link pull-right">
-<<<<<<< HEAD
-                    <a href="" class="btn btn-lg btn-primary btn-block " ng-click="submitt()">Submitt</a>
-=======
                     <a href="" class="btn btn-lg btn-primary btn-block " ng-click='submit()'>Submit</a>
->>>>>>> sockets on going
                 </div>
             <div class="form-group" style="padding-top: 60px;">
                 <p>Your contact info:</p>
