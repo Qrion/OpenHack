@@ -1,0 +1,10 @@
+.profile {
+    background-color: #e5e5e5;
+}
+
+.profile-divider {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
