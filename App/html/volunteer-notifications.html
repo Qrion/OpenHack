@@ -59,25 +59,30 @@
         </nav>
         
         <div class="container-fluid">
-             <div class="col-xs-12 col-md-6 col-sm-offset-3">
-                 
-                 
-                 <li class='notification' style='background:white; padding:10px; border-radius:10px;' ng-click='arrowChange($index)' ng-repeat='notification in notifications'>
-                     <h4>
-                        {{notification.title}}
-                   <a style="color:#cc0000;" ng-init='notification.toggleArrow=false'>
-                    <span class='glyphicon glyphicon-chevron-up' ng-show='notification.toggleArrow'></span>
-                    <span class='glyphicon glyphicon-chevron-down' ng-hide='notification.toggleArrow'></span>
-                  </a>
-                     </h4>
-        
-        <div ng-show='notification.toggleArrow'>
-          <div class="card card-block text-left">
-            {{notification.text}}                          
-          </div>
-        </div>
-                
-                 </li>
+             <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+                 <div class='notification-wrapper' ng-repeat='notification in notifications'>
+                       <div class='time'>
+                        <span class='glyphicon glyphicon-time'></span>
+                         {{notification.time}}
+                       </div>
+                     <li class='notification' style='background:white; padding:10px; border-radius:10px;' ng-click='arrowChange($index)' >
+                         <h4>
+                            {{notification.title}}
+                       <a style="color:#cc0000;" ng-init='notification.toggleArrow=false'>
+                        <span class='glyphicon glyphicon-chevron-up' ng-show='notification.toggleArrow'></span>
+                        <span class='glyphicon glyphicon-chevron-down' ng-hide='notification.toggleArrow'></span>
+                      </a>
+                         </h4>
+
+            <div ng-show='notification.toggleArrow'>
+              <div class="card card-block text-left">
+                {{notification.text}}                          
+              </div>
+            </div>
+
+                     </li>
+                 </div>
              </div>
         </div>
         
