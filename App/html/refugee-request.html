@@ -1,4 +1,7 @@
 <html>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <head>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.6.0/socket.io.min.js'></script>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -19,33 +22,47 @@
          
             var socket = io.connect('http://localhost:6007');
 
+            socket.on('newRequest', function(data){
+                alert(data);
+            })
+
             var app = angular.module('req-app', [])
             app.controller('main', function($scope){
                 $scope.help = false;
-                $scope.toggleHelp = function(){
+                $scope.help1 = false;
+                $scope.help2 = false;
+                $scope.toggleHelp = function()
+                {
                     $scope.help = !$scope.help;
                 }
                 
-                $scope.help1 = false;
-                $scope.toggleHelp1 = function(){
+                $scope.toggleHelp1 = function()
+                {
                     $scope.help1 = !$scope.help1;
                 }
                 
-                $scope.help2 = false;
-                $scope.toggleHelp2 = function(){
+                $scope.toggleHelp2 = function()
+                {
                     $scope.help2 = !$scope.help2;
                 }
                 
+                $scope.submitt = function()
+                {
+                    $scope.title = null;
+                    $scope.textArea = null;
+                    $scope.category = null;
+                    $scope.date = null;
+                    $scope.time = null;
+
                 $scope.submit = function(){
                     var data = {
                         "user":"Sarah Roe",
                         "user-id":3,
                         "title":$scope.title,
-                        "location":[39.62839790000001,18.4632844],
+                        "location":[59.72839790000001,18.4632844],
                         "description":$scope.desc,
                         "deadline":$scope.date_input,
-                        "categories":$scope.category,
-                        "phone":0707070738
+                        "categories":$scope.category
                     }
                     
                     socket.emit('request', data)
@@ -72,7 +89,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
               </button>
-              <a class="navbar-brand" href="#">Red Cross | Sarah Roe | Notifications</a>
+              <a class="navbar-brand" href="#">Red Cross | Sarah Roe | Request help</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,8 +97,7 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="../html/refugee-request.html">Request help</a></li>
-                <li><a href="../html/refugee-notifications.html">Timeline</a></li>
-                <li><a href="../html/refugee-map.html">Map</a></li>
+                <li><a href="../html/refugee-notifications.html">Notifications</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -96,13 +112,17 @@
             <div class="form-group" style="resize: none">
               <label for="comment">Description <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp()"></span> </label>
                 <p ng-show='help'>Please write what you want help with and a brief description of your situation.</p>
+<<<<<<< HEAD
+              <textarea class="form-control" rows="5" id="comment" style="resize: vertical" onkeyup="textAreaAdjust(this)" style="overflow:hidden" placeholder="What do you need help with?" ng-model="textArea"></textarea>
+=======
               <textarea class="form-control" rows="5" id="comment" style="resize: vertical" onkeyup="textAreaAdjust(this)" style="overflow:hidden" placeholder="What do you need help with?" ng-model='desc'></textarea>
+>>>>>>> sockets on going
             </div>
             
             <div class="form-group">
                 <label for="comment">Category <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp1()"></span> </label>
                 <p ng-show='help1'>Please add some keywords about your situation.</p>
-                <input type="category" name="category" ng-model="category" id="category" class="form-control input-lg" placeholder="help, food, clothes, talk, ..." required>
+                <input type="category" name="category" ng-model="category" id="category" class="form-control input-lg" placeholder="education, food, clothes, questions, ..." required>
             </div>
             
             <p><input type="checkbox" ng-model="period"> Add date and time</p>
@@ -110,18 +130,26 @@
             <div class="form-group" ng-show="period">
                 <div>
                     <label for="comment">Date </label>
+<<<<<<< HEAD
+                    <input type="text" class="date_input" maxlength="" placeholder="24/12/2016" id="date_input" ng-model="date">
+=======
                     <input type="text" class="date_input" maxlength="" placeholder="24/12/2016" id="date_input" ng-model='date_input'>
+>>>>>>> sockets on going
                     <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp2()"></span>
                 </div>
                 <div>
                     <label for="comment">Time </label>
-                    <input type="text" class="time_input" maxlength="5" placeholder="12:00" id="time_input">
+                    <input type="text" class="time_input" maxlength="5" placeholder="12:00" id="time_input" ng-model="time">
                     <p ng-show='help2'>Please write at what day and time you will need help if it is necessary.</p>
                 </div>
             </div>
             
             <div class="btn btn-link pull-right">
+<<<<<<< HEAD
+                    <a href="" class="btn btn-lg btn-primary btn-block " ng-click="submitt()">Submitt</a>
+=======
                     <a href="" class="btn btn-lg btn-primary btn-block " ng-click='submit()'>Submit</a>
+>>>>>>> sockets on going
                 </div>
             <div class="form-group" style="padding-top: 60px;">
                 <p>Your contact info:</p>
