@@ -23,7 +23,18 @@
                 $scope.toggleHelp = function(){
                     $scope.help = !$scope.help;
                 }
+                
+                $scope.help1 = false;
+                $scope.toggleHelp1 = function(){
+                    $scope.help1 = !$scope.help1;
+                }
+                
+                $scope.help2 = false;
+                $scope.toggleHelp2 = function(){
+                    $scope.help2 = !$scope.help2;
+                }
             })
+            
         </script>
         
     </head>
@@ -67,35 +78,38 @@
             </div>
             
             <div class="form-group">
-                <label for="comment">Category <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp()"></span> </label>
+                <label for="comment">Category <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp1()"></span> </label>
+                <p ng-show='help1'>Please add some keywords about your situation.</p>
                 <input type="title" name="title" ng-model="title" id="title" class="form-control input-lg" placeholder="Title" required>
             </div>
             
-            <div class="form-group">
-                
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Time
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
+            <p><input type="checkbox" ng-model="period"> Add date and time</p>
+            
+            <div class="form-group" ng-show="period">
+                <div>
+                    <label for="comment">Date </label>
+                    <input type="text" class="time" maxlength="5" placeholder="12:00" id="starttime">
+                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp2()"></span>
                 </div>
-                
-                <div class="btn btn-link pull-right">
-                    <a href="" class="btn btn-lg btn-primary btn-block ">Submitt</a>
+                <div>
+                    <label for="comment">Time </label>
+                    <input type="text" class="time" maxlength="5" placeholder="12:00" id="starttime">
+                    <p ng-show='help2'>Please write at what day and time you will need help if it is necessary.</p>
                 </div>
             </div>
             
+            <div class="btn btn-link pull-right">
+                    <a href="" class="btn btn-lg btn-primary btn-block ">Submitt</a>
+                </div>
             <div class="form-group">
-                <p>Name:</p> 
-                <p>Location:</p>
+                <div class="panel panel-default" style="width: 70%;">
+                    <p style="padding-top: 10px;">Name:</p> 
+                    <p>Location:</p>
+                    <p>E-mail:</p>
+                    <p>Phone:</p> 
+                </div>
             </div>
+                
         </div>
         
     </body>
