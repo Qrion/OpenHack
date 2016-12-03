@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="js/app.js"></script>
+        <script src="../js/app.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         
         <!-- Latest compiled and minified CSS -->
@@ -15,7 +15,7 @@
         
     </head>
     
-    <body ng-app="" ng-controller="">
+    <body ng-app="map" ng-controller="mapCtrl">
         
         <nav class="navbar navbar-default" style="margin-bottom: 0px;"r>
           <div class="container-fluid">
@@ -49,7 +49,7 @@
         <!-- Map -->
         
  
-            <div id="map" style="height: 100vh; width: 100%;">
+            <div id="map" style="height: 90vh; width: 100%;">
                 
                     <!--<info-window id="foo">
                                 <div ng-non-bindable>
@@ -62,7 +62,7 @@
                                 </div>
                             </info-window>-->
                 
-                    <marker ng-repeat="location in locations track by $index" position="{{location.coordinate}}" title="{{location.tip}} {{location.subject}}: {{location.body}}"></marker>
+                    <marker ng-repeat="request in requests track by $index" position="{{request.location}}" title="{{request.title}} {{request.description}}: {{request.description}}"></marker>
                 </ng-map>
             </div>
  
@@ -70,22 +70,60 @@
         <script>
       function initMap() {
         var myLatLng = {lat: 55.7047, lng: 13.1910};
-
+        var requests = [
+                {
+                    "user":"Anders Wall",
+                    "user-id":1,
+                    "location":[59.32839790000001,18.0632844],
+                    "title": "Homework help",
+                    "description":"I need help with my homeworks",
+                    "deadline":'2016-06-28 20:18',
+                    "categories":['homeworks']
+                },
+                {
+                    "user":"Sarah Jonsson",
+                    "user-id":3,
+                    "location":[59.32839790000001,18.2632844],
+                    "title": "Homework help",
+                    "description":"I need help with food for tonight",
+                    "deadline":'2016-05-28 20:18',
+                    "categories":['food']
+                },
+                {
+                    "user":"Bob Eriksson",
+                    "user-id":2,
+                    "location":[59.32839790000001,18.4632844],
+                    "title": "Homework help",
+                    "description":"I need help with writing a CV",
+                    "deadline":'2016-05-28 20:18',
+                    "categories":['language']
+                }
+        ];
+          
         // Create a map object and specify the DOM element for display.
         var map = new google.maps.Map(document.getElementById('map'), {
           center: myLatLng,
           scrollwheel: false,
           zoom: 8
         });
-
-        // Create a marker and set its position.
-        var marker = new google.maps.Marker({
-          map: map,
-          position: myLatLng,
-          title: 'Hello World!'
-        });
+        
+        
+        for(var i=0; i<requests.length; i++){
+            var request = requests[i];
+            var marker = new google.maps.Marker({
+              map: map,
+              position: {lat: request.location[0], lng: request.location[1]},
+              title: request.title
+            });
+            
+        }
+        
       }
-
+            
+        var app = angular.module('map', [])
+        app.controller('mapCtrl', function($scope){
+        })
+        
     </script>
         
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMOQ5ntPst9DhScYdGruqXZ9pO0JLHjPw&callback=initMap"
