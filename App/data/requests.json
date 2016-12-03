@@ -1,21 +1,24 @@
 var requests = [
     {
         "user":"Anders Wall",
+        "user-id":1,
         "location":[59.32839790000001,18.0632844],
         "description":"I need help with my homeworks",
         "deadline":'2016-06-28 20:18',
         "categories":['homeworks']
     },
     {
-        "user":"Sarah",
-        "location":[59.32839790000001,18.0632844],
+        "user":"Sarah Jonsson",
+        "user-id":3,
+        "location":[59.32839790000001,18.2632844],
         "description":"I need help with food for tonight",
         "deadline":'2016-05-28 20:18',
         "categories":['food']
     },
     {
-        "user":"Eric",
-        "location":[59.32839790000001,18.0632844],
+        "user":"Bob Eriksson",
+        "user-id":2,
+        "location":[59.32839790000001,18.4632844],
         "description":"I need help with writing a CV",
         "deadline":'2016-05-28 20:18',
         "categories":['language']

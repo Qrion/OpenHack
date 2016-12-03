@@ -1,16 +1,36 @@
 var users = [
     {
+        "id":1,
         "name":"Anders Wall",
         "email":'anders.wall@gmail.com',
         "phone":0726128127,
+        "age":40,
+        "gender":'male',
         "languages": ['swedish', 'english'],
-        "password": 'password'
+        "password": 'password',
+        "type":"seeker"
     },    
     {
+        "id":2,
         "name":"Bob Eriksson",
         "email":'bob.eriksson@gmail.com',
         "phone":0726128127,
+        "age":19,
+        "gender":'male',
         "languages": ['swedish', 'english', 'arabic'],
-        "password": 'password'
+        "password": 'password',
+        "type":"volunteer",
+        "helped":3
+    },
+    {
+        "id":3,
+        "name":"Sarah Jonsson",
+        "email":'sara.jonsson@gmail.com',
+        "phone":0707622514,
+        "age":20,
+        "gender":'female',
+        "languages": ['swedish', 'english', 'arabic'],
+        "password": 'password',
+        "type":"seeker"
     }
 ];
