@@ -1,7 +1,11 @@
 <html>
+   <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <head>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="js/app.js"></script>
+        <script src='../data/notifications-refugee.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <link rel="stylesheet" href="../css/style.css">
         
@@ -14,9 +18,21 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         
+        <script>
+    
+        var app = angular.module('app', [])
+        app.controller('main', function($scope){
+            $scope.toggleArrow = true;
+            $scope.arrowChange = function($index){
+                $scope.notifications[$index].toggleArrow = !$scope.notifications[$index].toggleArrow;
+            }
+            $scope.notifications = notifications;
+        })
+    
+        </script>
     </head>
     
-    <body class="profile">
+    <body class="profile" ng-app='app' ng-controller='main'>
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -34,67 +50,39 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="../html/refugee-request.html">Request help</a></li>
-                <li><a href="../html/refugee-notifications.html">Notifications</a></li>
-                <li><a href="../html/refugee-profile.html">Profile</a></li>
+                <li><a href="../html/volunteer-map.html">Map</a></li>
+                <li><a href="../html/volunteer-notifications.html">Notifications</a></li>
+                <li><a href="../html/volunteer-profile.html">Profile</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
         
         <div class="container-fluid">
-             <div class="col-xs-12 col-md-6 col-sm-offset-3">
-                 <li class='notification' style='background:white; padding:10px; border-radius:10px;' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click='arrowChange()'>
-                     <h4>
-                     <u>
-                        10:34: Du har erbjudit dig till att hjälpa Reshin  
-                    </u>
-                   <a style="color:#cc0000;" >
-                    <span class='glyphicon glyphicon-chevron-up' ng-hide='toggleArrow'></span>
-                    <span class='glyphicon glyphicon-chevron-down' ng-show='toggleArrow'></span>
-                  </a>
-                     </h4>
-        
-        <div class="collapse" id="collapseExample">
-          <div class="card card-block text-left">
-            <b>Title</b>: Help with homework<br>
-            <b>Description</b>: I need help with my homework. Very happy for every bit of help!<br>
-            <b>Time</b>: 10:00 idag<br>
-            <b>Phone number</b>: 0725129126
-                          
-          </div>
-        </div>
-                
-                 </li>
-                 
-                 
-                 <li class='notification' style='background:white; padding:10px; border-radius:10px;' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click='arrowChange()'>
-                     <h4>
-                        10:00: Tack för att du hjälpte Ylva! Du är nu..
-                   <a style="color:#cc0000;" >
-                    <span class='glyphicon glyphicon-chevron-up' ng-hide='toggleArrow'></span>
-                    <span class='glyphicon glyphicon-chevron-down' ng-show='toggleArrow'></span>
-                  </a>
-                     </h4>
-        
-        <div class="collapse" id="collapseExample">
-          <div class="card card-block text-left">
-            <b>Title</b>: Help with homework<br>
-            <b>Description</b>: I need help with my homework. Very happy for every bit of help!<br>
-            <b>Time</b>: 10:00 idag<br>
-            <b>Phone number</b>: 0725129126
-                          
-          </div>
-        </div>
-                
-                 </li>
-                 <li class='notification' style='background:white; padding:10px; border-radius:10px;' >
-                     <h4>
-                        08:00: Någon har svarat till dig i forumet
-                     </h4>
-        
-                
-                 </li>
+             <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+                 <div class='notification-wrapper' ng-repeat='notification in notifications'>
+                       <div class='time'>
+                        <span class='glyphicon glyphicon-time'></span>
+                         {{notification.time}}
+                       </div>
+                     <li class='notification' style='background:white; padding:10px; border-radius:10px;' ng-click='arrowChange($index)' >
+                         <h4>
+                            {{notification.title}}
+                       <a style="color:#cc0000;" ng-init='notification.toggleArrow=false'>
+                        <span class='glyphicon glyphicon-chevron-up' ng-show='notification.toggleArrow'></span>
+                        <span class='glyphicon glyphicon-chevron-down' ng-hide='notification.toggleArrow'></span>
+                      </a>
+                         </h4>
+
+            <div ng-show='notification.toggleArrow'>
+              <div class="card card-block text-left">
+                {{notification.text}}                          
+              </div>
+            </div>
+
+                     </li>
+                 </div>
              </div>
         </div>
         
