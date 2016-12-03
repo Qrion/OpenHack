@@ -13,26 +13,32 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        
+        <script>
+            var app = angular.module('login', []);
+            app.controller('login-ctrl', function($scope){
+                $scope.hej = false;
+            })
+        </script>
     </head>
     
-    <body>
+    <body ng-app='login' ng-controller='login-ctrl'>
         <div class="container">
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         <img src="../img/redcross.png" class='img-responsive'>
         <p>
-            Welcome to the swedish red cross volunteer site. This site is for volunteers to give help to people in need, and for people in need to requests help from volunteers. 
+            Welcome to the swedish Red Cross Instant Volunteer. This site will let you receive help from our well educated volunteers all around the country, it could be anything from help with the swedish language to food supply. Register or sign in with your details. The service is not for emergency calls, in those cases you should call the swedish emergency number: 112.
         </p>
-		<form role="form" action='volunteer-help-people.html'>
+		<form name='login-form' role="form" action='volunteer-help-people.html'>
 			<fieldset>
 				<hr class="colorgraph">
+				<h2>Sign in</h2>
 				<div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+                    <input type="email" name="email" ng-model="email" id="email" class="form-control input-lg" placeholder="Email Address" required>
 				</div>
 				<div class="form-group">
-                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                    <input type="password" name="password" ng-model="password" id="password" class="form-control input-lg" placeholder="Password" required>
 				</div>
 				<span class="button-checkbox">
 					<label><input type="checkbox"> Remember Me</label>
@@ -42,11 +48,16 @@
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In" ng-disabled='true'>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<a href="general-register.html" class="btn btn-lg btn-primary btn-block">Register</a>
 					</div>
+				</div>
+				<div class="row">
+				    <div class="col-xs-12">
+				        <a href="">I am a volunteer</a>{{login-form.password.$valid}}
+				    </div>
 				</div>
 			</fieldset>
 		</form>
