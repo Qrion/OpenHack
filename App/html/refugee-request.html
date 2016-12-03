@@ -15,11 +15,20 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         
         <script>
+         
+            
+            var app = angular.module('req-app', [])
+            app.controller('main', function($scope){
+                $scope.help = false;
+                $scope.toggleHelp = function(){
+                    $scope.help = !$scope.help;
+                }
+            })
         </script>
         
     </head>
     
-    <body class="profile">
+    <body class="profile" ng-app='req-app' ng-controller="main">
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,7 +37,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
               </button>
               <a class="navbar-brand" href="#">Red Cross | Jon Doe | Notifications</a>
             </div>
@@ -52,14 +61,40 @@
             </div>
             
             <div class="form-group" style="resize: none">
-              <label for="comment">Description:</label>
+              <label for="comment">Description <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp()"></span> </label>
+                <p ng-show='help'>Please write what you want help with and a brief description of your situation.</p>
               <textarea class="form-control" rows="5" id="comment" style="resize: vertical"></textarea>
             </div>
             
             <div class="form-group">
+                <label for="comment">Category <span class="glyphicon glyphicon-question-sign" aria-hidden="true" id="helpIcon" ng-click="toggleHelp()"></span> </label>
+                <input type="title" name="title" ng-model="title" id="title" class="form-control input-lg" placeholder="Title" required>
+            </div>
+            
+            <div class="form-group">
+                
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Time
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+                
                 <div class="btn btn-link pull-right">
                     <a href="" class="btn btn-lg btn-primary btn-block ">Submitt</a>
                 </div>
+            </div>
+            
+            <div class="form-group">
+                <p>Name:</p> 
+                <p>Location:</p>
             </div>
         </div>
         
