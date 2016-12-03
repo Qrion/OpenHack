@@ -19,10 +19,6 @@
          
             var socket = io.connect('http://localhost:6007');
 
-            socket.on('newRequest', function(data){
-                alert(data);
-            })
-
             var app = angular.module('req-app', [])
             app.controller('main', function($scope){
                 $scope.help = false;
@@ -45,10 +41,11 @@
                         "user":"Sarah Roe",
                         "user-id":3,
                         "title":$scope.title,
-                        "location":[59.72839790000001,18.4632844],
+                        "location":[39.62839790000001,18.4632844],
                         "description":$scope.desc,
                         "deadline":$scope.date_input,
-                        "categories":$scope.category
+                        "categories":$scope.category,
+                        "phone":0707070738
                     }
                     
                     socket.emit('request', data)
@@ -83,7 +80,8 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="../html/refugee-request.html">Request help</a></li>
-                <li><a href="../html/refugee-notifications.html">Notifications</a></li>
+                <li><a href="../html/refugee-notifications.html">Timeline</a></li>
+                <li><a href="../html/refugee-map.html">Map</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

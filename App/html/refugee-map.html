@@ -13,6 +13,8 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -20,11 +22,6 @@
     </head>
     
     <body ng-app="map" ng-controller="mapCtrl">
-        <div id='alertbox'>
-            Someone just called for help.
-            
-            
-        </div>
         <nav class="navbar navbar-default" style="margin-bottom: 0px;"r>
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -42,9 +39,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="../html/volunteer-map.html">Map</a></li>
-                <li><a href="../html/volunteer-notifications.html">Timeline</a></li>
-                <li><a href="../html/volunteer-profile.html">Profile</a></li>
+                <li><a href="../html/refugee-request.html">Request help</a></li>
+                <li><a href="../html/refugee-notifications.html">Timeline</a></li>
+                <li><a href="../html/refugee-map.html">Map</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -61,7 +58,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h2>Event map</h2>
-                    <p>The event map shows the location of people who have requested help and also includes all of the relevant future and active events hosted by the Red Cross. Click on the points of the map to read more.</p>
+                    <p>The event map includes all of the relevant future and active events hosted by the Red Cross, as well as the red cross different facilities. Click on the points of the map to read more.</p>
                 </div>
                 <div class="col-sm-9">
                     <div id="map" style="height: 90vh; width: 100%;">
@@ -91,13 +88,43 @@
                     "user":"Sarah Jonsson",
                     "user-id":3,
                     "location":[59.32839790000001,18.2632844],
-                    "title": "Need advice",
+                    "title": "Help to write CV",
                     "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     "deadline":'2016-05-28 20:18',
                     "phone": '+460707708633',
                     "categories":['food']
                 },
-            {
+                {
+                    "user":"Bob Eriksson",
+                    "user-id":2,
+                    "location":[59.32839790000001,18.4632844],
+                    "title": "Social meetup",
+                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "deadline":'2016-05-28 20:18',
+                    "phone": '+460707708633',
+                    "categories":['language']
+                },
+                {
+                    "user":"Bob Eriksson",
+                    "user-id":2,
+                    "location":[59.12839790000001,17.5632844],
+                    "title": "Practicing swedish",
+                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "deadline":'2016-05-28 20:18',
+                    "phone": '+460707708633',
+                    "categories":['language']
+                },
+                {
+                    "user":"Bob Eriksson",
+                    "user-id":2,
+                    "location":[60.32839790000001,16.4632844],
+                    "title": "Help with law",
+                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "deadline":'2016-05-28 20:18',
+                    "phone": '+460707708633',
+                    "categories":['language']
+                },
+                {
                     "user":"Bob Eriksson",
                     "user-id":2,
                     "location":[59.62839790000001,18.4632844],
@@ -122,66 +149,6 @@
                     "user-id":2,
                     "location":[59.02839790000001,18.4632844],
                     "title": "Learn self defence",
-                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    "deadline":'2016-05-28 20:18',
-                    "phone": '+460707708633',
-                    "categories":['language']
-                },
-                {
-                    "user":"Bob Eriksson",
-                    "user-id":2,
-                    "location":[59.32839790000001,18.4632844],
-                    "title": "Help with shopping 1",
-                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    "deadline":'2016-05-28 20:18',
-                    "phone": '+460707708633',
-                    "categories":['language']
-                },
-                {
-                    "user":"Bob Eriksson",
-                    "user-id":2,
-                    "location":[59.12839790000001,17.5632844],
-                    "title": "Help with shopping 2",
-                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    "deadline":'2016-05-28 20:18',
-                    "phone": '+460707708633',
-                    "categories":['language']
-                },
-                {
-                    "user":"Bob Eriksson",
-                    "user-id":2,
-                    "location":[60.32839790000001,16.4632844],
-                    "title": "Help with shopping 3",
-                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    "deadline":'2016-05-28 20:18',
-                    "phone": '+460707708633',
-                    "categories":['language']
-                },
-                {
-                    "user":"Bob Eriksson",
-                    "user-id":2,
-                    "location":[59.62839790000001,18.4632844],
-                    "title": "Help with shopping 4",
-                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    "deadline":'2016-05-28 20:18',
-                    "phone": '+460707708633',
-                    "categories":['language']
-                },
-                {
-                    "user":"Bob Eriksson",
-                    "user-id":2,
-                    "location":[59.92839790000001,18.8632844],
-                    "title": "Näst sista",
-                    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    "deadline":'2016-05-28 20:18',
-                    "phone": '+460707708633',
-                    "categories":['language']
-                },
-                {
-                    "user":"Bob Eriksson",
-                    "user-id":2,
-                    "location":[59.02839790000001,18.4632844],
-                    "title": "Sista event",
                     "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     "deadline":'2016-05-28 20:18',
                     "phone": '+460707708633',
@@ -232,7 +199,7 @@
             '<p><b>Phone:</b> '+this.phone+'</p>'+
             '<p>'+this.user+'</p>'+
             '<p><em>Call person to arrange meetup.</em></p>'+
-            '<a href="../html/volunteer-notifications.html"><button type="button"  class="btn btn-success">I will support</button></a>'+
+            '<a href="../html/volunteer-notifications.html"><button type="button"  class="btn btn-success">I will join</button></a>'+
             '</div>'+
             '</div>');
               infowindow.open(map, this);
@@ -247,49 +214,9 @@
         app.controller('mapCtrl', function($scope){
         })
         
-        var socket = io.connect('http://localhost:6007');
+        
 
-        socket.on('newRequest', function(data){
-            console.log(data.location)
-            var marker = new google.maps.Marker({
-              map: map,
-              position: {lat: data.location[0], lng: data.location[1]},
-              title: data.title,
-              description: data.description,
-              deadline: data.deadline,
-              user: data.user,
-              phone: data.phone
-            });
-                        
-            marker.addListener('click', function() {
-            infowindow.setContent( '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">'+this.title+'</h1>'+
-            '<div id="bodyContent">'+
-            '<p>'+this.description+'</p>'+
-            '<p><b>Time:</b> '+this.deadline+'</p>'+
-            '<p><b>Phone:</b> '+this.phone+'</p>'+
-            '<p>'+this.user+'</p>'+
-            '<p><em>Call person to arrange meetup.</em></p>'+
-            '<a href="../html/volunteer-notifications.html"><button type="button"  class="btn btn-success">I will support</button></a>'+
-            '</div>'+
-            '</div>');
-              infowindow.open(map, this);
-            });
-            
-            markers[markers.length] = marker;
-
-            
-            $('#alertbox').html("<b>" + data.user + " needs help.</b> " + data.title +  ": " + data.description +" <br> Contact:"+ data.phone + "<br> <br><a href='volunteer-notifications.html' class='btn btn-success'>I will support</a>");
-                        
-            $('#alertbox').fadeIn();
-            
-            $('#alertbox').animate({
-                opacity: 0,
-              }, 80000);
-        })
-
+        
     </script>
         
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMOQ5ntPst9DhScYdGruqXZ9pO0JLHjPw&callback=initMap"
