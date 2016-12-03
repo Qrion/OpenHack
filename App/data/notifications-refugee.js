@@ -7,7 +7,8 @@ var notifications = [{
 {    'userid':3,
     'title':'Red Cross is hosting events in your area',
     'time': '21:00',
-    'text':'Grattis! Du har blivit upphöjd till rangen grön'
+    'text':'Red Cross is hosting the event: T-shirts for Impact. Follow this link for more information:',
+    'link':'https://www.icrc.org/en'
 },                    
 {
     'userid':3,
