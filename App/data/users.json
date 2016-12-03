@@ -1,0 +1,16 @@
+var users = [
+    {
+        "name":"Anders Wall",
+        "email":'anders.wall@gmail.com',
+        "phone":0726128127,
+        "languages": ['swedish', 'english'],
+        "password": 'password'
+    },    
+    {
+        "name":"Bob Eriksson",
+        "email":'bob.eriksson@gmail.com',
+        "phone":0726128127,
+        "languages": ['swedish', 'english', 'arabic'],
+        "password": 'password'
+    }
+];
