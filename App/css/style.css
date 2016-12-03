@@ -8,3 +8,10 @@
     border-bottom: 1px solid #ccc;
     background-color: #fff;
 }
+
+.notification{
+    list-style:none;
+}
+.notification img{
+    float:left
+}
