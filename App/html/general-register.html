@@ -50,7 +50,7 @@
 				<hr class="colorgraph">
                 <h3>Create account</h3>
                 
-                <h4>Full name</h4>
+                <h4>Name and Surname</h4>
 				<div class="form-group">
                     <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Name Surname">
 				</div>
@@ -70,32 +70,29 @@
                 <select class="form-control">
                   <option ng-repeat='language in languages'>{{language}}</option>
                 </select>
-                
-                <p>
-                    <input type="checkbox" ng-model="lang_box_1"> &nbsp; add anoher language
-                </p>
+                <p><input type="checkbox" ng-model="lang_box_1"> Add anoher language</p>
                 
                 <div ng-show="lang_box_1">
                     <select class="form-control">
                       <option ng-repeat='language in languages'>{{language}}</option>
                     </select>
-                    
-                    <p>
-                        <input type="checkbox" ng-model="lang_box_2"> &nbsp; add anoher language
-                    </p>
+                    <p><input type="checkbox" ng-model="lang_box_2"> Add anoher language</p>
                 </div>
                 
                 <div ng-show="lang_box_2">
                     <select class="form-control">
                       <option ng-repeat='language in languages'>{{language}}</option>
                     </select>
+                    <p><input type="checkbox" ng-model="lang_box_3"> Add anoher language</p>
+                </div>
+                
+                <div ng-show="lang_box_3">
+                    <select class="form-control">
+                      <option ng-repeat='language in languages'>{{language}}</option>
+                    </select>
                 </div>
                 
                 <hr class="colorgraph">
-                
-                <button ng-click="addLanguage" ng-show="myVar">
-                  Add language
-                </button>
                    
                 <h4>Password</h4>
 				<div class="form-group">
