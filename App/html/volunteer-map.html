@@ -39,7 +39,7 @@
                 <li><a href="../html/volunteer-map.html">Map</a></li>
                 <li><a href="../html/volunteer-notifications.html">Notification</a></li>
                 <li><a href="../html/volunteer-profile.html">Profile</a></li>
-                <li><a href="../html/volunteer-action.html">Things you have done</a></li>
+                <li><a href="../html/volunteer-action.html">History</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -52,34 +52,24 @@
         
  
             <div id="map" style="height: 90vh; width: 100%;">
-                
-                    <!--<info-window id="foo">
-                                <div ng-non-bindable>
-                                  <div id="siteNotice"></div>
-                                  <h1 id="firstHeading" class="firstHeading">{{ location.tip }} {{ location.subject }}</h1>
-                                  <div id="bodyContent">
-                                    <p style="width: 350px; margin-top: 10px; color: #696969;">{{ location.body }}</p>
-                                    <div class="button" style="margin-top: 5px; float: right;">More</div>
-                                  </div>
-                                </div>
-                            </info-window>-->
-                
-                    <marker ng-repeat="request in requests track by $index" position="{{request.location}}" title="{{request.title}} {{request.description}}: {{request.description}}"></marker>
+                                
+                    <marker ng-repeat="request in requests track by $index" position="{{request.location}}"></marker>
                 </ng-map>
             </div>
  
         
         <script>
       function initMap() {
-        var myLatLng = {lat: 55.7047, lng: 13.1910};
+        var myLatLng = {lat: 59.7047, lng: 16.1910};
         var requests = [
                 {
                     "user":"Anders Wall",
                     "user-id":1,
                     "location":[59.32839790000001,18.0632844],
-                    "title": "Homework help",
+                    "title": "Homework hessslp",
                     "description":"I need help with my homeworks",
                     "deadline":'2016-06-28 20:18',
+                    "phone": '+460707708633',
                     "categories":['homeworks']
                 },
                 {
@@ -89,6 +79,7 @@
                     "title": "Homework help",
                     "description":"I need help with food for tonight",
                     "deadline":'2016-05-28 20:18',
+                    "phone": '+460707708633',
                     "categories":['food']
                 },
                 {
@@ -98,6 +89,7 @@
                     "title": "Homework help",
                     "description":"I need help with writing a CV",
                     "deadline":'2016-05-28 20:18',
+                    "phone": '+460707708633',
                     "categories":['language']
                 }
         ];
@@ -108,17 +100,45 @@
           scrollwheel: false,
           zoom: 8
         });
+          
         
-        
+        var markers = [];
+          
+        var infowindow = new google.maps.InfoWindow({
+            content: 'loading'
+        });
+
         for(var i=0; i<requests.length; i++){
             var request = requests[i];
             var marker = new google.maps.Marker({
               map: map,
               position: {lat: request.location[0], lng: request.location[1]},
-              title: request.title
+              title: request.title,
+              description: request.description,
+              deadline: request.deadline,
+              user: request.user,
+              phone: request.phone
+            });
+            
+            markers[i] = marker;
+            
+            marker.addListener('click', function() {
+              infowindow.setContent( '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">'+this.title+'</h1>'+
+            '<div id="bodyContent">'+
+            '<p>'+this.description+'</p>'+
+            '<p><b>Time:</b> '+this.deadline+'</p>'+
+            '<p><b>Phone:</b> '+this.phone+'</p>'+
+            '<p>'+this.user+'</p>'+
+            '</div>'+
+            '</div>');
+              infowindow.open(map, this);
             });
             
         }
+          
         
       }
             
