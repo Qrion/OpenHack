@@ -19,6 +19,9 @@
 .notification img{
     float:left
 }
+.notification .glyphicon{
+    float:right;
+}
 .notification::before{
     content:" ";
     display:block;
