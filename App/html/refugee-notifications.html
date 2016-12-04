@@ -66,8 +66,8 @@
                         <span class='glyphicon glyphicon-time'></span><br>
                          {{notification.time}}
                        </div>
-                     <li class='notification' style='background:white; padding:10px; border-radius:10px;' ng-click='arrowChange($index)' >
-                         <h4>
+                     <li class='notification' style='background:white; padding:10px; border-radius:10px;' >
+                         <h4  ng-click='arrowChange($index)'>
                             {{notification.title}}
                        <a style="color:#cc0000;" ng-init='notification.toggleArrow=false'>
                         <span class='glyphicon glyphicon-chevron-up' ng-show='notification.toggleArrow'></span>
@@ -77,7 +77,20 @@
 
             <div ng-show='notification.toggleArrow'>
               <div class="card card-block text-left">
-                {{notification.text}}  <a href='{{notification.link}}'>{{notification.link}}</a>                   
+                {{notification.text}}  <a href='{{notification.link}}'>{{notification.link}}</a>     
+                <button class='form-control chat-button' ng-if='notification.type == "response"'>
+                    <span class='glyphicon glyphicon-comment'></span> Chat with Armin
+                </button>
+                
+                <span class='chat-button' ng-if='notification.type == "rate"'>
+                   <br>
+                   <span class='glyphicon glyphicon-star'></span>
+                   <span class='glyphicon glyphicon-star'></span>
+                   <span class='glyphicon glyphicon-star'></span>
+                   <span class='glyphicon glyphicon-star'></span>
+                   <span class='glyphicon glyphicon-star-empty'></span>
+                </span>
+                </span>
               </div>
             </div>
 

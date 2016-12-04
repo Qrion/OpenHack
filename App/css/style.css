@@ -19,7 +19,7 @@
 .notification img{
     float:left
 }
-.notification .glyphicon{
+.glyphicon-chevron-up, .glyphicon-chevron-down{
     float:right;
 }
 .notification::before{
@@ -64,4 +64,7 @@
     width:40px;
     float:left;
     margin-top:-4px;
+}
+.chat-button{
+    margin-top:10px;
 }
