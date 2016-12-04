@@ -1,16 +1,16 @@
 var notifications = [{
     'userid':3,
-    'title':'You just requested a service',
-    'time': '00:01',
-    'text':'You just requested a service: "Läxhjälp".'
-
-},{
-    'userid':3,
-    'title':'Armin just volonteered to help you',
+    'title':'Jon just volonteered to help you',
     'time': '22:40',
     'text':'Title: Help with homework. Description: I need help with my homework. Very happy for every bit of help! Time: Any time. Phone number: 0725129126',
     'type':'response'
     
+},{
+    'userid':3,
+    'title':'You just requested a service',
+    'time': '00:01',
+    'text':'You just requested a service: "Läxhjälp".'
+
 },
 {    'userid':3,
     'title':'Red Cross is hosting events in your area',
