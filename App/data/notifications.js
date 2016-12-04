@@ -5,7 +5,7 @@ var notifications = [{
     'text':'Title: Help with homework. Description: I need help with my homework. Very happy for every bit of help! Time: Any time. Phone number: 0725129126'
 },
 {    'userid':3,
-    'title':'Du just got a higher ranking',
+    'title':'You just got a higher ranking',
     'time': '21:00',
     'text':'Grattis! Du har blivit upphöjd till rangen grön'
 },                    
