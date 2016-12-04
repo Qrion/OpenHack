@@ -20,6 +20,14 @@
             var app = angular.module('login', []);
             app.controller('login-ctrl', function($scope){
                 $scope.hej = false;
+                $scope.actionLink = 'refugee-request.html';
+                $scope.setAction = function(){
+                    if( $scope.actionLink == 'refugee-request.html'){
+                        $scope.actionLink = 'volunteer-map.html';
+                    }else{
+                        $scope.actionLink = 'refugee-request.html';
+                    }
+                }
             })
         </script>
     </head>
@@ -33,7 +41,7 @@
         <p>
             Welcome to the swedish Red Cross Instant Volunteer. This site will let you receive help from our well educated volunteers all around the country, it could be anything from help with the swedish language to food supply. Register or sign in with your details. The service is not for emergency calls, in those cases you should call the swedish emergency number: 112.
         </p>
-		<form name='login-form' role="form" action='volunteer-map.html'>
+		<form name='login-form' role="form" action='{{actionLink}}'>
 			<fieldset>
 				<hr class="colorgraph">
 				<h2>Sign in</h2>
@@ -45,6 +53,7 @@
 				</div>
 				<span class="button-checkbox">
 					<label><input type="checkbox"> Remember Me</label>
+					<label><input type="checkbox" ng-click='setAction()'> I am a volunteer</label>
                     <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
 					<a href="" class="btn btn-link pull-right">Forgot Password?</a>
 				</span>

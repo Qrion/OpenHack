@@ -23,7 +23,6 @@
             var socket = io.connect('http://localhost:6007');
 
             socket.on('newRequest', function(data){
-                alert(data);
             })
 
             var app = angular.module('req-app', [])
@@ -53,7 +52,7 @@
                     $scope.category = null;
                     $scope.date = null;
                     $scope.time = null;
-
+                }
                 $scope.submit = function(){
                     var data = {
                         "user":"Sarah Roe",
@@ -66,6 +65,7 @@
                     }
                     
                     socket.emit('request', data)
+                    $scope.submitt()
                 }
             })
             
@@ -97,8 +97,8 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="../html/refugee-request.html">Request help</a></li>
-                <li><a href="../html/volunteer-notifications.html">Timeline</a></li>
-                <li><a href="../html/volunteer-map.html">Map</a></li>
+                <li><a href="../html/refugee-notifications.html">Timeline</a></li>
+                <li><a href="../html/refugee-map.html">Map</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -106,6 +106,14 @@
         
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" >
             <div class="form-group">
+              <h2>Request help</h2>
+               <p>
+                   On this page you can request help from one of the well informed Red Cross volunteers. We can not ensure that you will receive help, and you should not contact us for emergencies. For emergencies, please contact the swedish emergency number: 112. 
+               </p>
+               <p>
+                   The top right menu will give you several other options with services from the Red Cross.
+               </p>
+               <br>
                 <h4>Title</h4>
                 <input type="title" name="title" ng-model="title" id="title" class="form-control input-lg" placeholder="Title" required>
             </div>

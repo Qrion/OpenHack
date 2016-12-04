@@ -1,5 +1,11 @@
 var notifications = [{
     'userid':3,
+    'title':'You just requested help',
+    'time': '00:01',
+    'text':'Title: Help with homework. Description: I need help with my homework. Very happy for every bit of help! Time: Any time. Phone number: 0725129126'
+
+},{
+    'userid':3,
     'title':'Armin just volonteered to help you',
     'time': '22:40',
     'text':'Title: Help with homework. Description: I need help with my homework. Very happy for every bit of help! Time: Any time. Phone number: 0725129126'

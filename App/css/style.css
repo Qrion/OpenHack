@@ -36,7 +36,8 @@
     z-index:-1
 }
 .glyphicon-time{
-    font-size:20px;
+    font-size:25px;
+    display:block;
 }
 .time{
     width:9%;
@@ -49,7 +50,7 @@
 }
 #alertbox{
     width:200px;
-    height:250px;
+    height:80px;
     position:absolute;
     top:50px;
     right:0;

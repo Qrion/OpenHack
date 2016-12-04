@@ -281,13 +281,13 @@
             markers[markers.length] = marker;
 
             
-            $('#alertbox').html("<b>" + data.user + " needs help.</b> " + data.title +  ": " + data.description +" <br> Contact:"+ data.phone + "<br> <br><a href='volunteer-notifications.html' class='btn btn-success'>I will support</a>");
+            $('#alertbox').html("<b>" + data.user + " needs help near you.");
                         
             $('#alertbox').fadeIn();
             
             $('#alertbox').animate({
                 opacity: 0,
-              }, 80000);
+              }, 10000);
         })
 
     </script>
